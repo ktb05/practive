@@ -1,0 +1,27 @@
+# Function to calculate the sum of digits raised to the power of the number of digits
+def calculate_special_number(n):
+    num = n
+    num_digits = 0
+    temp = n
+    while temp > 0:
+        temp //= 10
+        num_digits += 1
+
+    result = 0
+    temp = n
+    while temp > 0:
+        digit = temp % 10
+        result += digit ** num_digits
+        temp //= 10
+
+    return result
+
+# Input the range
+start_range = int(input("Enter Start of Range: "))
+end_range = int(input("Enter End of Range: "))
+
+# Display special numbers within the range
+print("Special Numbers between {} and {}".format(start_range, end_range))
+for i in range(start_range, end_range + 1):
+    if i == calculate_special_number(i):
+        print(i)
